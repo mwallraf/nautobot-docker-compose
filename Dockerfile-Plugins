@@ -1,0 +1,17 @@
+ARG PYTHON_VER
+ARG NAUTOBOT_VERSION=1.4.3
+
+ARG http_proxy
+ARG https_proxy
+
+ARG http_proxy
+ARG https_proxy
+
+FROM networktocode/nautobot:${NAUTOBOT_VERSION}-py${PYTHON_VER}
+
+RUN pip install --upgrade pip wheel
+
+COPY ./plugin_requirements.txt /opt/nautobot/
+RUN pip install --no-warn-script-location -r /opt/nautobot/plugin_requirements.txt
+
+COPY config/nautobot_config.py /opt/nautobot/nautobot_config.py

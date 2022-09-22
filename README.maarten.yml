@@ -1,0 +1,65 @@
+# Clone of the official nautobot-docker-compose repository
+
+This clone may be used to install Nautobot default install + some plugins. It also has an updated Netmiko version in order to recognise OneAccess OneOs v5 + v6.
+
+The procedure in "docs/plugins.md" was followed in order to prepare the docker-compose files to include Nautobot plugins.
+
+## USAGE
+
+docker-compose build
+docker-compose up
+
+DOCKER drives mapping:
+- secrets
+
+MacBook-Pro:django-ops-webapps-portal mwallraf$ docker exec -it nautobot-docker-compose_nautobot_1 bash
+nautobot@3c64c310d241:~$ nautobot-server createsuperuser
+
+## Nautobot organization
+
+Prior to adding devices or content, some minimal info should be provisioned:
+
+### DEVICE ROLES
+
+* Customer CPE
+* L3 PE routers
+* L3 MPLS core
+* 
+
+### MANUFACTURERS
+
+These are the network equipment vendors
+
+* Cisco
+* Ekinops/OneAccess
+* Ciena
+
+### Device types
+
+Make and model of a device
+
+* C891F
+* LBB_150
+
+
+### Sites
+
+Usually a building or location
+
+* Sirius
+
+
+### Regions
+
+Can contain sites or other Regions
+
+* Belgium
+* Datacenters
+
+
+### Platforms
+
+Use same as "netmiko" platforms, this can be mapped to napalm drivers
+
+* cisco_ios
+* oneaccess_oneos
